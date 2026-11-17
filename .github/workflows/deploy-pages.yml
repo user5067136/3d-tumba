@@ -1,8 +1,15 @@
-name: Deploy to GitHub Pages
+# Деплой на GitHub Pages — ТОЛЬКО вручную (workflow_dispatch).
+# Pages из этой ветки нельзя включить токеном из CI (проверено: 403 "Resource not accessible"),
+# поэтому автозапуск на push убран, чтобы не ловить красные ✗.
+#
+# Самый простой способ опубликовать сайт — вообще без этого workflow:
+#   Settings → Pages → Source: "Deploy from a branch" → ветка arena/c313f989-3d-tumba → папка / (root) → Save.
+#
+# Этот workflow — альтернатива, если в Settings → Pages выбрано "GitHub Actions":
+#   вкладка Actions → "Deploy to GitHub Pages (manual)" → Run workflow.
+name: Deploy to GitHub Pages (manual)
 
 on:
-  push:
-    branches: [arena/c313f989-3d-tumba]
   workflow_dispatch:
 
 permissions:
@@ -21,21 +28,10 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v5
-        with:
-          # попытаться включить Pages автоматически, если выключен
-          enablement: true
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: .
-
-      - name: Deploy to GitHub Pages
-        id: deployment
+      - id: deployment
         uses: actions/deploy-pages@v4
