@@ -31,8 +31,7 @@ import { exportDae, downloadFile, FILE_BASENAME } from './exporters.js';
 const canvas = document.getElementById('scene');
 const loading = document.getElementById('loading');
 const toggleButton = document.getElementById('drawer-toggle');
-const toggleIcon = toggleButton.querySelector('[data-icon]');
-const toggleLabel = toggleButton.querySelector('[data-label]');
+const toggleLabel = toggleButton.querySelector('.btn__label');
 const resetButton = document.getElementById('reset-view');
 const exportRb = document.getElementById('export-rb');
 const exportDaeButton = document.getElementById('export-dae');
@@ -60,7 +59,7 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
 renderer.setSize(window.innerWidth, window.innerHeight, false);
 renderer.outputEncoding = sRGBEncoding;
 renderer.toneMapping = ACESFilmicToneMapping;
-renderer.toneMappingExposure = 1.02;
+renderer.toneMappingExposure = 0.86;
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = PCFSoftShadowMap;
 
@@ -108,10 +107,10 @@ scene.environment = pmrem.fromScene(roomEnvironment, 0.04).texture;
 roomEnvironment.dispose?.();
 pmrem.dispose();
 
-const hemi = new HemisphereLight(0xfff7ec, 0xcbb393, 0.7);
+const hemi = new HemisphereLight(0xfff7ec, 0xc0a582, 0.42);
 scene.add(hemi);
 
-const key = new DirectionalLight(0xfff1dc, 2.2);
+const key = new DirectionalLight(0xfff1dc, 1.9);
 key.position.set(1150, 1850, 1250);
 key.castShadow = true;
 key.shadow.mapSize.set(2048, 2048);
@@ -126,11 +125,11 @@ key.shadow.normalBias = 1.5;
 key.shadow.radius = 4;
 scene.add(key);
 
-const fill = new DirectionalLight(0xffe9d6, 0.5);
+const fill = new DirectionalLight(0xffe9d6, 0.32);
 fill.position.set(-1400, 780, -900);
 scene.add(fill);
 
-const rim = new DirectionalLight(0xffffff, 0.35);
+const rim = new DirectionalLight(0xffffff, 0.22);
 rim.position.set(-500, 520, 1400);
 scene.add(rim);
 
@@ -186,7 +185,6 @@ const drawerState = { target: 0, progress: 0 };
 function setDrawer(open) {
   drawerState.target = open ? 1 : 0;
   toggleButton.setAttribute('aria-pressed', String(open));
-  toggleIcon.textContent = open ? '📥' : '📤';
   toggleLabel.textContent = open ? 'Закрыть ящик' : 'Открыть ящик';
 }
 

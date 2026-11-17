@@ -55,9 +55,8 @@ body {
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(58% 48% at 68% 34%, rgba(255, 250, 242, 0.75) 0%, rgba(255, 250, 242, 0) 70%),
-    radial-gradient(90% 80% at 50% 120%, rgba(120, 84, 50, 0.16) 0%, rgba(120, 84, 50, 0) 60%);
-  mix-blend-mode: normal;
+    radial-gradient(120% 95% at 50% 40%, rgba(255, 250, 242, 0) 52%, rgba(93, 63, 38, 0.13) 100%),
+    linear-gradient(to top, rgba(120, 84, 50, 0.1) 0%, rgba(120, 84, 50, 0) 26%);
 }
 
 .panel {
@@ -93,6 +92,8 @@ body {
   background: linear-gradient(145deg, #f6e9d8, #e2cdb1);
   border: 1px solid rgba(138, 95, 58, 0.18);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  color: #8a5f3a;
+  flex: 0 0 42px;
 }
 
 .brand__text h1 {
@@ -175,6 +176,7 @@ body {
 
 .btn--primary {
   padding: 13px 22px;
+  white-space: nowrap;
   color: #fff7ec;
   font-size: 14.5px;
   font-weight: 600;
@@ -195,6 +197,11 @@ body {
 .btn--primary[aria-pressed="true"] {
   background: linear-gradient(150deg, #8f6439, #6a4526);
 }
+
+.icon--close { display: none; }
+
+.btn--primary[aria-pressed="true"] .icon--open { display: none; }
+.btn--primary[aria-pressed="true"] .icon--close { display: inline-block; }
 
 .btn--ghost {
   width: 46px;
@@ -232,6 +239,7 @@ body {
 
 .btn--file .btn__icon {
   display: grid;
+  color: var(--oak-deep);
   place-items: center;
   width: 30px;
   height: 30px;
@@ -422,7 +430,7 @@ body {
 @media (max-width: 560px) {
   .brand { padding: 9px 13px 9px 10px; gap: 9px; }
   .brand__icon { width: 34px; height: 34px; font-size: 17px; border-radius: 10px; }
-  .brand__text h1 { font-size: 14.5px; }
+  .brand__text h1 { font-size: 13px; white-space: nowrap; }
   .specs { padding: 6px 9px; }
   .specs__row { grid-template-columns: 13px 1fr auto; gap: 6px; }
   .specs__row strong { font-size: 12px; }
@@ -441,12 +449,17 @@ body {
   .btn--file .btn__icon { width: 24px; height: 24px; flex-basis: 24px; font-size: 11px; }
   .btn__title { font-size: 11.5px; }
   .btn__sub { font-size: 10px; }
-  .controls { bottom: 96px; }
+  .controls { bottom: 116px; }
   .hint { display: none; }
   .btn--primary { padding: 11px 18px; font-size: 13.5px; }
 }
 
 @media (max-height: 520px) and (orientation: landscape) {
+  .brand { padding: 8px 14px 8px 10px; gap: 10px; }
+  .brand__icon { width: 34px; height: 34px; flex-basis: 34px; border-radius: 10px; }
+  .brand__text h1 { font-size: 15px; }
+  .brand__text p { display: none; }
+  .specs { padding: 7px 11px; }
   .export { width: 196px; padding: 9px; }
   .export__hint, .export__head { display: none; }
   .export__status { display: none; }

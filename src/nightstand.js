@@ -51,12 +51,12 @@ export const HANDLE = {
 };
 
 export const MATERIAL_DEFS = {
-  body: { color: 0xffffff, roughness: 0.58, metalness: 0.03, wood: true, exportColor: 0xc9a478, label: 'Дуб' },
-  front: { color: 0xf3e4d1, roughness: 0.54, metalness: 0.03, wood: true, exportColor: 0xd2ae84, label: 'Дуб — фасад' },
-  inner: { color: 0xe4d0b7, roughness: 0.72, metalness: 0.02, wood: true, exportColor: 0xdcc3a4, label: 'Дуб — внутренние' },
-  back: { color: 0xccb896, roughness: 0.82, metalness: 0.02, wood: true, exportColor: 0xbfa584, label: 'Дуб — задняя стенка' },
-  leg: { color: 0xdec7a6, roughness: 0.55, metalness: 0.03, wood: true, exportColor: 0xc09a70, label: 'Дуб — ножки' },
-  brass: { color: 0xb98f52, roughness: 0.3, metalness: 1, wood: false, exportColor: 0xb98f52, label: 'Латунь' },
+  body: { color: 0xffffff, roughness: 0.62, metalness: 0.02, wood: true, env: 0.35, exportColor: 0xc09869, label: 'Дуб' },
+  front: { color: 0xf0dcc4, roughness: 0.58, metalness: 0.02, wood: true, env: 0.35, exportColor: 0xcaa273, label: 'Дуб — фасад' },
+  inner: { color: 0xdfc9ac, roughness: 0.76, metalness: 0.02, wood: true, env: 0.25, exportColor: 0xd5bc9b, label: 'Дуб — внутренние' },
+  back: { color: 0xc6ae8a, roughness: 0.86, metalness: 0.02, wood: true, env: 0.2, exportColor: 0xb69c7c, label: 'Дуб — задняя стенка' },
+  leg: { color: 0xe3cbab, roughness: 0.6, metalness: 0.02, wood: true, env: 0.3, exportColor: 0xb78f63, label: 'Дуб — ножки' },
+  brass: { color: 0x8f6a35, roughness: 0.5, metalness: 0.95, wood: false, env: 0.4, exportColor: 0xa87c42, label: 'Латунь' },
 };
 
 export function buildMaterials() {
@@ -70,7 +70,7 @@ export function buildMaterials() {
       map: def.wood ? wood : null,
       roughness: def.roughness,
       metalness: def.metalness,
-      envMapIntensity: def.wood ? 0.55 : 1.1,
+      envMapIntensity: def.env ?? (def.wood ? 0.35 : 0.9),
     });
   }
 

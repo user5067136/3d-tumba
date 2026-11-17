@@ -14,9 +14,9 @@ function rand(seed) {
 
 export function createWoodTexture({
   size = 1024,
-  base = '#c9a478',
-  light = '#dcc09a',
-  dark = '#7c532e',
+  base = '#bf9567',
+  light = '#d2b287',
+  dark = '#6b4622',
   seed = 20240517,
 } = {}) {
   const canvas = document.createElement('canvas');
