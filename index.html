@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TUMBA·01 — Прикроватная тумба | Интерактивная 3D-модель · Скачать OBJ / GLB / STL</title>
+  <meta name="description" content="Интерактивная 3D-модель прикроватной тумбы TUMBA·01: вращайте, разберите на детали, меняйте отделку и скачайте файл модели (OBJ + MTL, GLB, STL) для SketchUp, Blender, три.js и 3D-печати." />
+  <meta property="og:title" content="TUMBA·01 — тумба в вашем браузере и в вашем CAD" />
+  <meta property="og:description" content="Вращайте, разбирайте, скачивайте: OBJ, GLB, STL. Модель параметрическая, единицы — миллиметры, лицензия CC0." />
+  <meta property="og:image" content="assets/img/reference.jpg" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2317181d'/%3E%3Ctext x='32' y='45' font-size='36' text-anchor='middle' fill='%23f2efe9' font-family='Georgia'%3EТ·%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script type="importmap">
+    { "imports": { "three": "./assets/vendor/three.module.js" } }
+  </script>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ══════════ шапка ══════════ -->
+  <header class="topbar">
+    <a class="brand" href="./">
+      <span class="brand-mark">Т·</span>
+      <span>
+        <span class="brand-name">TUMBA·01</span>
+        <span class="brand-sub">Прикроватная тумба · интерьер</span>
+      </span>
+    </a>
+    <nav class="topnav" aria-label="Разделы">
+      <a class="nav-link" href="#specs">Спецификация</a>
+      <a class="nav-link" href="#download">Скачать 3D</a>
+      <a class="btn btn-ghost" href="https://github.com/user5067136/3d-tumba" target="_blank" rel="noopener" aria-label="Репозиторий на GitHub">
+        <svg width="17" height="17" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+        <span class="btn-label">GitHub</span>
+      </a>
+      <a class="btn" href="models/tumba-01.zip" download>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <span class="btn-label">Скачать 3D</span>
+      </a>
+    </nav>
+  </header>
+
+  <main class="layout">
+
+    <!-- ══════════ 3D-сцена ══════════ -->
+    <section class="stage" id="stage" aria-label="Интерактивный 3D-просмотр тумбы">
+      <canvas id="scene-canvas"></canvas>
+
+      <span class="vertical-label" aria-hidden="true">Прикроватная тумба — коллекция «Студия»</span>
+
+      <span class="chip chip-dims"><b>520 × 544 × 430</b> мм</span>
+
+      <span class="hint" aria-hidden="true">
+        <svg width="26" height="16" viewBox="0 0 26 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M1 8c4-6 8-9 12-9s8 3 12 9"/><path d="M5 8h16M13 3v10" opacity=".55"/></svg>
+        тяните · вращайте
+      </span>
+
+      <div class="stage-ui">
+        <div class="control-cluster">
+          <button class="icon-btn" id="toggle-rotate" aria-pressed="true" title="Автовращение" aria-label="Включить или выключить автовращение">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><polyline points="21 3 21 9 15 9"/></svg>
+          </button>
+          <div class="explode-pill">
+            <label for="explode">Разобранный вид</label>
+            <input type="range" id="explode" min="0" max="100" value="0" step="1" aria-label="Степень разборки модели" />
+            <output id="explode-value" for="explode">0%</output>
+          </div>
+        </div>
+
+        <div class="finish-dock">
+          <span class="finish-caption">Отделка — <b id="finish-name">Графит</b></span>
+          <div class="swatches" role="radiogroup" aria-label="Отделка корпуса">
+            <button class="swatch is-active" role="radio" aria-checked="true" aria-label="Графит"  data-finish="graphite"   style="background:#3f4956"></button>
+            <button class="swatch" role="radio" aria-checked="false" aria-label="Шалфей"    data-finish="sage"       style="background:#5e665c"></button>
+            <button class="swatch" role="radio" aria-checked="false" aria-label="Латте"     data-finish="latte"      style="background:#a39384"></button>
+            <button class="swatch" role="radio" aria-checked="false" aria-label="Терракот"  data-finish="terracotta" style="background:#7e574a"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ панель ══════════ -->
+    <aside class="panel">
+      <div class="eyebrow-row">
+        <span class="eyebrow">Коллекция «Студия» · 01</span>
+        <span class="license">CC0 · свободно</span>
+      </div>
+
+      <h1 class="title">Тум<em>ба</em><span class="index">01</span></h1>
+
+      <p class="lede">
+        Лаконичная прикроватная тумба: <b>открытая ниша</b> сверху, ящик с фасадом
+        <b>«шейкер»</b> и утопленный цоколь. Вращайте модель, разберите её на детали,
+        подберите отделку — и заберите <b>3D-файл</b> к себе в SketchUp, Blender или на печать.
+      </p>
+
+      <dl class="specs" id="specs">
+        <div class="spec-row"><dt>Габариты</dt><dd>520 × 544 × 430 мм · верхняя плита 544 × 452 мм с напуском</dd></div>
+        <div class="spec-row"><dt>Материал</dt><dd>МДФ 18 мм, матовая ПУ-эмаль; рамка фасада — 16 мм</dd></div>
+        <div class="spec-row"><dt>Фасад</dt><dd>Рамка «шейкер», панель утоплена на 8 мм, открывание push-to-open</dd></div>
+        <div class="spec-row"><dt>Ниша</dt><dd>Открытая, 484 × 220 мм, полка 16 мм</dd></div>
+        <div class="spec-row"><dt>Цоколь</dt><dd>Утопленный на 26 мм, высота 56 мм</dd></div>
+        <div class="spec-row"><dt>Масштаб</dt><dd>1:1 · единицы в файлах — миллиметры · Y-up</dd></div>
+      </dl>
+
+      <!-- ══════════ скачивание ══════════ -->
+      <section class="download" id="download" aria-labelledby="dl-title">
+        <h2 id="dl-title">Скачать 3D-модель</h2>
+        <p class="dl-sub">Точная геометрия из той же параметрической модели, что и на экране.</p>
+
+        <a class="dl-primary" href="models/tumba-01.zip" download>
+          <span>Скачать ZIP · OBJ + MTL</span>
+          <small>готов к импорту в SketchUp</small>
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </a>
+
+        <div class="dl-grid">
+          <button class="dl-btn" id="btn-obj" type="button">
+            <span class="fmt">OBJ <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+            <small>Wavefront OBJ + MTL в цвете выбранной отделки</small>
+          </button>
+          <button class="dl-btn" id="btn-glb" type="button">
+            <span class="fmt">GLB <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+            <small>glTF 2.0 · для веба, AR и игровых движков</small>
+          </button>
+          <button class="dl-btn" id="btn-stl" type="button">
+            <span class="fmt">STL <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+            <small>Бинарный STL · для 3D-печати макетов</small>
+          </button>
+          <button class="dl-btn" id="btn-png" type="button">
+            <span class="fmt">PNG <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+            <small>Рендер текущего вида сцены в PNG</small>
+          </button>
+        </div>
+
+        <p class="skp-note">
+          <b>Нужно .SKP?</b> Формат SketchUp — проприетарный, его нельзя сгенерировать в браузере.
+          Откройте <code>tumba-01.obj</code> в SketchUp: <code>File → Import…</code> → тип <code>OBJ</code>
+          (OBJ-импорт входит в SketchUp Pro; в бесплатной версии — через Blender: импорт OBJ → сохранение,
+          затем открытие в SketchUp). После импорта сохраните файл как <code>.skp</code>.
+        </p>
+      </section>
+
+      <div class="meta-row">
+        <span>Модель собирается из 13 деталей · параметрический исходник</span>
+        <a href="https://github.com/user5067136/3d-tumba" target="_blank" rel="noopener">Исходный код ↗</a>
+      </div>
+
+      <div class="footnote">
+        <span>© 2026 · TUMBA·01</span>
+        <span>Лицензия модели — CC0</span>
+        <span><a href="assets/img/reference.jpg" target="_blank" rel="noopener">Референс-рендер ↗</a></span>
+      </div>
+    </aside>
+  </main>
+
+  <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>

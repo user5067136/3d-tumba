@@ -1,0 +1,14 @@
+{
+  "name": "3d-tumba",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Интерактивная 3D-модель прикроватной тумбы TUMBA·01 — просмотр в браузере и скачивание (OBJ, GLB, STL)",
+  "type": "module",
+  "scripts": {
+    "export-models": "node scripts/export-models.mjs",
+    "serve": "python3 -m http.server 8080"
+  },
+  "dependencies": {
+    "three": "^0.180.0"
+  }
+}
